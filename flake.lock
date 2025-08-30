@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756580942,
+        "narHash": "sha256-pzmptuyRumRqeDv9Qch4OYFv0t6T+/g4FkFvSmn6yoA=",
+        "ref": "main",
+        "rev": "7e949727b0f8e8d1a5907b279ac6383badbc7960",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://github.com/shafti-code/dots.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://github.com/shafti-code/dots.git"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1756579987,
+        "narHash": "sha256-duCce8zGsaMsrqqOmLOsuaV1PVIw/vXWnKuLKZClsGg=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "99a69bdf8a3c6bf038c4121e9c4b6e99706a187a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1756543146,
+        "narHash": "sha256-iFjXZwjYyqhmeGVLsxfxFWbSsXDIXSJUC6dyEkQFoHo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "9c9a90449133bfc2d19feff96c612c28e56d7edd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-25.05-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "dots": "dots",
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
