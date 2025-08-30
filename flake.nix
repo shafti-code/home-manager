@@ -18,15 +18,20 @@
     { nixpkgs, home-manager, dots-src, ... }:
     let
       system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-      dots = pkgs.stdenv.mkDerivation {
-        name = "dots";
-        src = dots-src;
-        installPhase = ''
-          mkdir -p $out
-          cp -r * $out/
-          cp -r .* $out/ 2>/dev/null || true
-        '';
+      overlay = final : prev: {
+          dots = pkgs.stdenv.mkDerivation {
+            name = "dots";
+            src = dots-src;
+            installPhase = ''
+              mkdir -p $out
+              cp -r * $out/
+              cp -r .* $out/ 2>/dev/null || true
+            '';
+          };
+      };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ overlay ];
       };
     in
     {
@@ -36,7 +41,6 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ./home.nix ];
-        extraSpecialArgs = { inherit dots; };
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };

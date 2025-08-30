@@ -1,4 +1,4 @@
-{ config, pkgs, dots, ... }:
+{ config, pkgs,  ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -28,17 +28,17 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".zshrc".source ="${dots}/.zshrc";
+    ".zshrc".source ="${pkgs.dots}/.zshrc";
     ".config/ghostty"= {
-        source ="${dots}/ghostty";
+        source ="${pkgs.dots}/ghostty";
         recursive = true;
     };
     ".config/git" = {
-        source ="${dots}/git";
+        source ="${pkgs.dots}/git";
         recursive = true;
     };
     ".config/tmux" = {
-         source ="${dots}/tmux";
+         source ="${pkgs.dots}/tmux";
         recursive = true;
     };
     };
