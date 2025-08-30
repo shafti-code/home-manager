@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dots-src = {
-        url = "github:/shafti-code/dots";
+        url = "github:shafti-code/dots";
         flake = false;
     };
   };
@@ -26,6 +26,8 @@
               mkdir -p $out
               cp -r * $out/
               cp -r .* $out/ 2>/dev/null || true
+              ls -la
+              false
             '';
           };
       };
