@@ -1,20 +1,19 @@
 {
   "nodes": {
-    "dots": {
+    "dots-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1756580942,
+        "lastModified": 1756581049,
         "narHash": "sha256-pzmptuyRumRqeDv9Qch4OYFv0t6T+/g4FkFvSmn6yoA=",
-        "ref": "main",
-        "rev": "7e949727b0f8e8d1a5907b279ac6383badbc7960",
-        "revCount": 2,
-        "type": "git",
-        "url": "https://github.com/shafti-code/dots.git"
+        "owner": "shafti-code",
+        "repo": "dots",
+        "rev": "016ad032d9d00de1e98fb0fa08d3bc0a15788602",
+        "type": "github"
       },
       "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "https://github.com/shafti-code/dots.git"
+        "owner": "shafti-code",
+        "repo": "dots",
+        "type": "github"
       }
     },
     "home-manager": {
@@ -55,7 +54,7 @@
     },
     "root": {
       "inputs": {
-        "dots": "dots",
+        "dots-src": "dots-src",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
       }

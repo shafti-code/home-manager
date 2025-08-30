@@ -8,17 +8,26 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dots = {
-        url = "git+https://github.com/shafti-code/dots.git?ref=main";
+    dots-src = {
+        url = "github:/shafti-code/dots";
         flake = false;
     };
   };
 
   outputs =
-    { nixpkgs, home-manager, dots, ... }:
+    { nixpkgs, home-manager, dots-src, ... }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
+      dots = pkgs.stdenv.mkDerivation {
+        name = "dots";
+        src = dots-src;
+        installPhase = ''
+          mkdir -p $out
+          cp -r * $out/
+          cp -r .* $out/ 2>/dev/null || true
+        '';
+      };
     in
     {
       homeConfigurations."shafti" = home-manager.lib.homeManagerConfiguration {
