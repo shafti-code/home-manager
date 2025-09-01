@@ -8,38 +8,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dots-src = {
-        url = "github:shafti-code/dots";
-        flake = false;
-    };
+    dots.url = "git+https://github.com/shafti-code/dots";
   };
 
   outputs =
-    { nixpkgs, home-manager, dots-src, ... }:
+    { nixpkgs, home-manager, dots, ... }:
     let
       system = "aarch64-darwin";
-      overlay = final : prev: {
-          dots = pkgs.stdenv.mkDerivation {
-            name = "dots";
-            src = dots-src;
-            installPhase = ''
-              mkdir -p $out
-              cp -r * $out/
-              cp -r .* $out/ 2>/dev/null || true
-              ls -la
-              false
-            '';
-          };
-      };
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ overlay ];
       };
     in
     {
       homeConfigurations."shafti" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-
+        extraSpecialArgs = {dots = dots;};
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [ ./home.nix ];

@@ -1,4 +1,4 @@
-{ config, pkgs,  ... }:
+{ config, pkgs, dots,  ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -17,9 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.git
-  ];
+  home.packages = [];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -28,17 +26,17 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".zshrc".source ="${pkgs.dots}/.zshrc";
+    ".zshrc".source ="${dots}/.zshrc";
     ".config/ghostty"= {
-        source ="${pkgs.dots}/ghostty";
+        source ="${dots}/ghostty";
         recursive = true;
     };
     ".config/git" = {
-        source ="${pkgs.dots}/git";
+        source ="${dots}/git";
         recursive = true;
     };
     ".config/tmux" = {
-         source ="${pkgs.dots}/tmux";
+         source ="${dots}/tmux";
         recursive = true;
     };
     };
@@ -62,7 +60,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager = {
+      enable = true;
+  };
 }
