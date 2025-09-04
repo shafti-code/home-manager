@@ -2,11 +2,11 @@
   "nodes": {
     "dots": {
       "locked": {
-        "lastModified": 1756741143,
-        "narHash": "sha256-aKuqyctFhJbnkvOg+n6qJYDanvWBYBW2QcQIaPV+Bx0=",
+        "lastModified": 1756969542,
+        "narHash": "sha256-2ZI7VsMPhWxMHFmQoU61zPgtcG6LDMiM6P+qXSF8yts=",
         "ref": "refs/heads/master",
-        "rev": "7218fdca3147e108c32ca7feee98dfddb5ca6545",
-        "revCount": 5,
+        "rev": "c1441fb32a3b02e149c9410bd0271e739d88da85",
+        "revCount": 7,
         "type": "git",
         "url": "https://github.com/shafti-code/dots"
       },

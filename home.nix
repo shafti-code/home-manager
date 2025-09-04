@@ -39,6 +39,10 @@
          source ="${dots}/tmux";
         recursive = true;
     };
+    ".config/fastfetch" = {
+         source ="${dots}/fastfetch";
+        recursive = true;
+    };
     };
 
   # Home Manager can also manage your environment variables through
